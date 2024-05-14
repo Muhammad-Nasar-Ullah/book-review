@@ -20,17 +20,17 @@ return new class extends Migration
             $table->unsignedTinyInteger('rating');
 
             $table->timestamps();
-
-
-//            Two ways of creating foreign key
-
-//          $table->foreign('book_id')
-//              ->references('id')->on('books')
-//                  ->onDelete('cascade');
-
-            $table->foreignId('book-id')->constrained()
-                ->cascadeOnDelete();
-
+//
+//
+////            Two ways of creating foreign key
+//
+          $table->foreign('book_id')
+              ->references('id')->on('books')
+                  ->onDelete('cascade');
+//
+////            $table->foreignId('book-id')->constrained()
+////                ->cascadeOnDelete();
+//
         });
     }
 
