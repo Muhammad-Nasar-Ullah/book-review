@@ -65,13 +65,13 @@ class  BookController extends Controller
      */
     public function show(int $id)
     {
-
-        $cacheKey = 'books:' . $id;
+        $cacheKey = 'book:' . $id;
 
         $book = cache()->remember(
             $cacheKey,
             3600,
-            fn() => Book::with([
+            fn() =>
+            Book::with([
                     'reviews' => fn($query) => $query->latest()
             ])->withAvgRating()->withReviewsCount()->findOrFail($id)
         );
