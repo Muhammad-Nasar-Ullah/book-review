@@ -1,10 +1,8 @@
-@extends('layouts.app')
+@extends('Layouts.app')
 
 @section('content')
 
-    <h1 class="mb-4 text-2x1">
-        Add Review for: {{ $book->title }}
-    </h1>
+    <h1 class="mb-4 text-2x1">Add Review for: {{ $book->title }}</h1>
 
     <form method="POST" action="{{ route('books.reviews.store', $book) }}">
         @csrf
@@ -20,9 +18,8 @@
             @endfor
         </select>
 
-        <button class="btn" type="submit">Add Review</button>
+        <button type="submit" class="btn">Add Review</button>
 
     </form>
-
 
 @endsection
